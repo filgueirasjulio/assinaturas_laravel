@@ -12,18 +12,18 @@ class SubscriptionController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function Checkout()
+    public function checkout()
     {
         return view('subscriptions.checkout', [
-            'intent' => auth()->user()->createSetupIntent()
+            'intent' => auth()->user()->createSetupIntent(),
         ]);
     }
 
     public function store(Request $request)
-    {
+    { 
         $request->user()
-                ->newSubscription('default', 'prod_Ja8GTzrJ1QrWIv')
-                ->create($request->token);
+        ->newSubscription('default', 'price_1IwxzsGAqeFLkvdLrNgsh5Us')
+        ->create($request->token);
 
         return redirect()->route('subscriptions.premium');
     }
