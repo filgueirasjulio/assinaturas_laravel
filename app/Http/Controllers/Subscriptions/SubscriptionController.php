@@ -12,9 +12,11 @@ class SubscriptionController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function Index()
+    public function Checkout()
     {
-        return view('subscriptions.index');
+        return view('subscriptions.checkout', [
+            'intent' => auth()->user()->createSetupIntent()
+        ]);
     }
 
     public function store(Request $request)

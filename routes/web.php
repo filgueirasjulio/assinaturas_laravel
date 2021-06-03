@@ -14,8 +14,10 @@ use App\Http\Controllers\Subscriptions\SubscriptionController;
 |
 */
 
-Route::get('/subscriptions/checkout', [SubscriptionController::class, 'index'])->name('subscriptions.checkout');
+Route::get('/subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
 Route::get('/subscriptions/premium', [SubscriptionController::class, 'premium'])->name('subscriptions.premium');
+
+Route::post('/subscriptions/store', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 
 Route::get('/', function () {
     return view('welcome');
