@@ -15,7 +15,7 @@ use App\Http\Controllers\Subscriptions\SubscriptionController;
 */
 
 Route::get('/subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
-Route::get('/subscriptions/premium', [SubscriptionController::class, 'premium'])->name('subscriptions.premium');
+Route::get('/subscriptions/premium', [SubscriptionController::class, 'premium'])->name('subscriptions.premium')->middleware(['subscribed']);
 
 Route::post('/subscriptions/store', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 
