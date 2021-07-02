@@ -14,6 +14,8 @@ use App\Http\Controllers\Subscriptions\SubscriptionController;
 |
 */
 
+Route::get('/subscriptions/invoice/{invoice}', [SubscriptionController::class, 'invoiceDownload'])->name('subscriptions.invoice.download');
+Route::get('/subscriptions/account', [SubscriptionController::class, 'account'])->name('subscriptions.account');
 Route::get('/subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
 Route::get('/subscriptions/premium', [SubscriptionController::class, 'premium'])->name('subscriptions.premium')->middleware(['subscribed']);
 
