@@ -49,4 +49,18 @@ class SubscriptionController extends Controller
                     'product' => 'Assinatura VIP'
                 ]);
     }
+
+    public function cancel()
+    {
+        auth()->user()->subscription('default')->cancel();
+
+        return redirect()->route('subscriptions.account');
+    }
+
+    public function resume()
+    {
+        auth()->user()->subscription('default')->resume();
+
+        return redirect()->route('subscriptions.account');
+    }
 }

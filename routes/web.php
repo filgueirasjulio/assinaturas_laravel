@@ -18,6 +18,8 @@ Route::get('/subscriptions/invoice/{invoice}', [SubscriptionController::class, '
 Route::get('/subscriptions/account', [SubscriptionController::class, 'account'])->name('subscriptions.account');
 Route::get('/subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
 Route::get('/subscriptions/premium', [SubscriptionController::class, 'premium'])->name('subscriptions.premium')->middleware(['subscribed']);
+Route::get('/subscriptions/cancel', [SubscriptionController::class, 'cancel'])->name('subscriptions.cancel');
+Route::get('/subscriptions/resume', [SubscriptionController::class, 'resume'])->name('subscriptions.resume');
 
 Route::post('/subscriptions/store', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 
