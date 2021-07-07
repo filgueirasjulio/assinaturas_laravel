@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Subscriptions\SubscriptionController;
 
@@ -23,9 +24,7 @@ Route::get('/subscriptions/resume', [SubscriptionController::class, 'resume'])->
 
 Route::post('/subscriptions/store', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'index'])->name('site.home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
