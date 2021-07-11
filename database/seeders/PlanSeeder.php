@@ -17,16 +17,16 @@ class PlanSeeder extends Seeder
         Plan::create([
             'name' => 'Básico',
             'url' => 'dindigital/basic',
-            'stripe_id' => "1",
-            'price' => 20,
+            'stripe_id' => "price_1IwxzsGAqeFLkvdLrNgsh5Us",
+            'price' => 74,
             'description' => 'Plano para iniciantes'
         ]);
 
         Plan::create([
             'name' => 'Express',
             'url' => 'dindigital/express',
-            'stripe_id' => "2",
-            'price' => 25,
+            'stripe_id' => "price_1Iwy4RGAqeFLkvdLER9sHKdr",
+            'price' => 498,
             'description' => 'Plano ideal para você.'
         ]);
     }

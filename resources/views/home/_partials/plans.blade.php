@@ -34,7 +34,7 @@
                                 </svg> <span x-text="feature">{{$item->name}}</span></p>
                             @endforeach
                         </div>
-                        <div class="card__footer text-center my-4"><a href="#" class="button button--filled button--primary">Assinar Agora Mesmo<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <div class="card__footer text-center my-4"><a href="{{route('choice.plan', $plan->url)}}" class="button button--filled button--primary">Assinar Agora Mesmo<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg></a></div>
                     </div>

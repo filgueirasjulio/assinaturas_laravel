@@ -17,12 +17,14 @@ use App\Http\Controllers\Subscriptions\SubscriptionController;
 
 Route::get('/subscriptions/invoice/{invoice}', [SubscriptionController::class, 'invoiceDownload'])->name('subscriptions.invoice.download');
 Route::get('/subscriptions/account', [SubscriptionController::class, 'account'])->name('subscriptions.account');
-Route::get('/subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout');
+Route::get('/subscriptions/checkout', [SubscriptionController::class, 'checkout'])->name('subscriptions.checkout')->middleware('check.choice.plan');
 Route::get('/subscriptions/premium', [SubscriptionController::class, 'premium'])->name('subscriptions.premium')->middleware(['subscribed']);
 Route::get('/subscriptions/cancel', [SubscriptionController::class, 'cancel'])->name('subscriptions.cancel');
 Route::get('/subscriptions/resume', [SubscriptionController::class, 'resume'])->name('subscriptions.resume');
 
-Route::post('/subscriptions/store', [SubscriptionController::class, 'store'])->name('subscriptions.store');
+Route::get('/to-sign/{url}', [SiteController::class, 'createSessionPlan'])->name('choice.plan');
+
+Route::post('/subscriptions/store', [SubscriptionController::class, 'store'])->name('subscriptions.store')->middleware('check.choice.plan');
 
 Route::get('/', [SiteController::class, 'index'])->name('site.home');
 
